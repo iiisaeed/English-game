@@ -1,0 +1,980 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة تعلم اللغة الإنجليزية - تعلّم الإنجليزية بطريقة ممتعة وتفاعلية</title>
+    <meta name="description" content="تعلم اللغة الإنجليزية بطريقة ممتعة من خلال لعبة تفاعلية. اختر مستوى الصعوبة واختبر معلوماتك في قواعد ومفردات اللغة الإنجليزية.">
+    <meta name="keywords" content="تعلم الإنجليزية, لعبة تعليمية, تعلم اللغة الإنجليزية, قواعد اللغة الإنجليزية, مفردات إنجليزية, لعبة لغة إنجليزية">
+    <meta name="author" content="تعليم الإنجليزية">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="لعبة تعلم اللغة الإنجليزية - تعلّم الإنجليزية بطريقة ممتعة وتفاعلية">
+    <meta property="og:description" content="تعلم اللغة الإنجليزية بطريقة ممتعة من خلال لعبة تفاعلية. اختر مستوى الصعوبة واختبر معلوماتك!">
+    <meta property="og:image" content="https://example.com/english-game-preview.jpg"> <!-- Replace with actual image URL -->
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="لعبة تعلم اللغة الإنجليزية - تعلّم الإنجليزية بطريقة ممتعة وتفاعلية">
+    <meta name="twitter:description" content="تعلم اللغة الإنجليزية بطريقة ممتعة من خلال لعبة تفاعلية. اختر مستوى الصعوبة واختبر معلوماتك!">
+    <meta name="twitter:image" content="https://example.com/english-game-preview.jpg"> <!-- Replace with actual image URL -->
+    
+    <link rel="canonical" href="https://example.com/english-learning-game"> <!-- Replace with actual URL -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇬🇧</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 150, 200, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #00bcd4, #00838f);
+            padding: 15px 25px;
+            text-align: center;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: #00bcd4;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .game-area {
+            padding: 25px;
+        }
+        
+        .difficulty {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .difficulty-btn {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: white;
+            color: #00838f;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.15);
+            border: 2px solid #b2ebf2;
+        }
+        
+        .difficulty-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 150, 200, 0.25);
+        }
+        
+        .difficulty-btn.active {
+            background: linear-gradient(135deg, #00bcd4, #00838f);
+            color: white;
+            border-color: #00bcd4;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.3);
+        }
+        
+        .question-container {
+            background: #f8fdff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #e0f7fa;
+            box-shadow: inset 0 0 10px rgba(0, 150, 200, 0.08);
+        }
+        
+        .question-text {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #006064;
+            line-height: 1.4;
+        }
+        
+        .question-type {
+            font-size: 1.1rem;
+            color: #00838f;
+            margin-top: 10px;
+            font-weight: 500;
+            background: rgba(178, 235, 242, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            background: white;
+            border: 2px solid #e0f7fa;
+            border-radius: 15px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-align: center;
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00838f;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.1);
+        }
+        
+        .option:hover {
+            background: #f0fcff;
+            transform: translateY(-3px);
+            border-color: #80deea;
+            box-shadow: 0 8px 20px rgba(0, 150, 200, 0.2);
+        }
+        
+        .option.correct {
+            background: linear-gradient(135deg, #a5d6a7, #66bb6a);
+            border-color: #4caf50;
+            color: white;
+            animation: pulse 0.5s ease;
+        }
+        
+        .option.wrong {
+            background: linear-gradient(135deg, #ef9a9a, #ef5350);
+            border-color: #f44336;
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            background: #e0f7fa;
+            padding: 12px 20px;
+            border-radius: 50px;
+        }
+        
+        .score {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #00838f;
+        }
+        
+        .progress-bar {
+            flex-grow: 1;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 0 20px;
+            overflow: hidden;
+            border: 1px solid #b2ebf2;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00bcd4, #00838f);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .next-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #00bcd4, #00838f);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.25);
+            margin-top: 10px;
+        }
+        
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 150, 200, 0.35);
+            background: linear-gradient(135deg, #00838f, #006064);
+        }
+        
+        .next-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .result-screen {
+            text-align: center;
+            padding: 40px 30px;
+            display: none;
+        }
+        
+        .result-title {
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            color: #00838f;
+        }
+        
+        .final-score {
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: #00838f;
+            margin: 25px 0;
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+        }
+        
+        .restart-btn {
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #00bcd4, #00838f);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.25);
+            margin-top: 20px;
+        }
+        
+        .restart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 150, 200, 0.35);
+            background: linear-gradient(135deg, #00838f, #006064);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #00bcd4, #00838f);
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 150, 200, 0.35);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+        }
+        
+        .notification.show {
+            opacity: 1;
+        }
+        
+     
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #00838f;
+            font-weight: 500;
+        }
+        
+        .stat-item {
+            background: rgba(178, 235, 242, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            header { flex-direction: column; padding: 15px; }
+            .logo { width: 50px; height: 50px; }
+            .logo i { font-size: 1.7rem; }
+            .difficulty { flex-direction: column; }
+            .difficulty-btn { width: 100%; }
+            .question-text { font-size: 1.7rem; }
+            .option { font-size: 1.05rem; min-height: 75px; padding: 12px; }
+            .progress { flex-direction: column; gap: 10px; text-align: center; }
+            .progress-bar { width: 100%; margin: 10px 0; }
+            .stats { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div>
+                    <h1>لعبة تعلم اللغة الإنجليزية</h1>
+                    <p class="subtitle">اختبر مهاراتك في الترجمة بين العربية والإنجليزية</p>
+                </div>
+            </div>
+            <div class="score">النقاط: <span id="score">0</span>/10</div>
+        </header>
+        
+        <div class="game-area">
+            <div class="difficulty">
+                <button class="difficulty-btn easy active" data-level="easy">سهل (150 سؤال)</button>
+                <button class="difficulty-btn medium" data-level="medium">متوسط (100 سؤال)</button>
+                <button class="difficulty-btn hard" data-level="hard">صعب (100 سؤال)</button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">المستوى الحالي: <span id="current-level">سهل</span></div>
+                <div class="stat-item">إجمالي الأسئلة: <span id="total-questions">350</span></div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-text">ما ترجمة كلمة "Apple"؟</div>
+                <div class="question-type">(الإنجليزية إلى العربية)</div>
+            </div>
+            
+            <div class="options">
+                <div class="option" data-value="تفاح">تفاح</div>
+                <div class="option" data-value="برتقال">برتقال</div>
+                <div class="option" data-value="موز">موز</div>
+            </div>
+            
+            <button class="next-btn" disabled>التالي <i class="fas fa-arrow-left"></i></button>
+            
+            <div class="progress">
+                <div class="question-count">السؤال <span id="current">1</span> من 10</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+                <div class="level">المستوى: <span id="level">سهل</span></div>
+            </div>
+        </div>
+        
+        <div class="result-screen">
+            <h2 class="result-title">النتيجة النهائية</h2>
+            <div class="final-score" id="final-score">0/10</div>
+            <p id="result-message">لقد أكملت الاختبار بنجاح!</p>
+            <p>استمر في الممارسة لتحسين مهاراتك في اللغة الإنجليزية</p>
+            <button class="restart-btn">إعادة الاختبار <i class="fas fa-redo"></i></button>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">إجابة صحيحة! +1 نقطة</div>
+    
+
+
+    <script>
+        // قاعدة بيانات الأسئلة الموسعة
+        const questions = {
+            easy: [
+                // 150 سؤال للمستوى السهل
+                { type: "en-ar", question: "Apple", options: ["تفاح", "برتقال", "موز"], answer: "تفاح" },
+                { type: "ar-en", question: "تفاح", options: ["Apple", "Orange", "Banana"], answer: "Apple" },
+                { type: "en-ar", question: "Book", options: ["كتاب", "قلم", "دفتر"], answer: "كتاب" },
+                { type: "ar-en", question: "قلم", options: ["Book", "Pen", "Notebook"], answer: "Pen" },
+                { type: "en-ar", question: "House", options: ["بيت", "سيارة", "شجرة"], answer: "بيت" },
+                { type: "ar-en", question: "سيارة", options: ["House", "Car", "Tree"], answer: "Car" },
+                { type: "en-ar", question: "Sun", options: ["شمس", "قمر", "نجمة"], answer: "شمس" },
+                { type: "ar-en", question: "قمر", options: ["Sun", "Moon", "Star"], answer: "Moon" },
+                { type: "en-ar", question: "Water", options: ["ماء", "نار", "هواء"], answer: "ماء" },
+                { type: "ar-en", question: "نار", options: ["Water", "Fire", "Air"], answer: "Fire" },
+                { type: "en-ar", question: "Cat", options: ["قطة", "كلب", "طائر"], answer: "قطة" },
+                { type: "ar-en", question: "كلب", options: ["Cat", "Dog", "Bird"], answer: "Dog" },
+                { type: "en-ar", question: "Tree", options: ["شجرة", "زهرة", "عشب"], answer: "شجرة" },
+                { type: "ar-en", question: "زهرة", options: ["Tree", "Flower", "Grass"], answer: "Flower" },
+                { type: "en-ar", question: "School", options: ["مدرسة", "جامعة", "مكتب"], answer: "مدرسة" },
+                { type: "ar-en", question: "جامعة", options: ["School", "University", "Office"], answer: "University" },
+                { type: "en-ar", question: "Friend", options: ["صديق", "عدو", "زميل"], answer: "صديق" },
+                { type: "ar-en", question: "عدو", options: ["Friend", "Enemy", "Colleague"], answer: "Enemy" },
+                { type: "en-ar", question: "Time", options: ["وقت", "ساعة", "يوم"], answer: "وقت" },
+                { type: "ar-en", question: "يوم", options: ["Time", "Hour", "Day"], answer: "Day" },
+                { type: "en-ar", question: "Food", options: ["طعام", "شراب", "حلوى"], answer: "طعام" },
+                { type: "ar-en", question: "شراب", options: ["Food", "Drink", "Candy"], answer: "Drink" },
+                { type: "en-ar", question: "Door", options: ["باب", "نافذة", "سقف"], answer: "باب" },
+                { type: "ar-en", question: "نافذة", options: ["Door", "Window", "Roof"], answer: "Window" },
+                { type: "en-ar", question: "Road", options: ["طريق", "شارع", "جسر"], answer: "طريق" },
+                { type: "ar-en", question: "شارع", options: ["Road", "Street", "Bridge"], answer: "Street" },
+                { type: "en-ar", question: "Light", options: ["ضوء", "ظلام", "نور"], answer: "ضوء" },
+                { type: "ar-en", question: "ظلام", options: ["Light", "Darkness", "Shadow"], answer: "Darkness" },
+                { type: "en-ar", question: "Love", options: ["حب", "كره", "صداقة"], answer: "حب" },
+                { type: "ar-en", question: "كره", options: ["Love", "Hate", "Friendship"], answer: "Hate" },
+                { type: "en-ar", question: "Hand", options: ["يد", "قدم", "رأس"], answer: "يد" },
+                { type: "ar-en", question: "قدم", options: ["Hand", "Foot", "Head"], answer: "Foot" },
+                { type: "en-ar", question: "Eye", options: ["عين", "أذن", "أنف"], answer: "عين" },
+                { type: "ar-en", question: "أنف", options: ["Eye", "Ear", "Nose"], answer: "Nose" },
+                { type: "en-ar", question: "Mouth", options: ["فم", "وجه", "شفة"], answer: "فم" },
+                { type: "ar-en", question: "وجه", options: ["Mouth", "Face", "Lip"], answer: "Face" },
+                { type: "en-ar", question: "Hair", options: ["شعر", "رأس", "جسم"], answer: "شعر" },
+                { type: "ar-en", question: "رأس", options: ["Hair", "Head", "Body"], answer: "Head" },
+                { type: "en-ar", question: "Leg", options: ["ساق", "ذراع", "ركبة"], answer: "ساق" },
+                { type: "ar-en", question: "ذراع", options: ["Leg", "Arm", "Knee"], answer: "Arm" },
+                { type: "en-ar", question: "Heart", options: ["قلب", "رئة", "دماغ"], answer: "قلب" },
+                { type: "ar-en", question: "دماغ", options: ["Heart", "Lung", "Brain"], answer: "Brain" },
+                { type: "en-ar", question: "Family", options: ["عائلة", "أصدقاء", "جيران"], answer: "عائلة" },
+                { type: "ar-en", question: "أصدقاء", options: ["Family", "Friends", "Neighbors"], answer: "Friends" },
+                { type: "en-ar", question: "Work", options: ["عمل", "دراسة", "لعب"], answer: "عمل" },
+                { type: "ar-en", question: "دراسة", options: ["Work", "Study", "Play"], answer: "Study" },
+                { type: "en-ar", question: "City", options: ["مدينة", "قرية", "بلدة"], answer: "مدينة" },
+                { type: "ar-en", question: "قرية", options: ["City", "Village", "Town"], answer: "Village" },
+                { type: "en-ar", question: "Country", options: ["دولة", "مدينة", "قارة"], answer: "دولة" },
+                { type: "ar-en", question: "قارة", options: ["Country", "City", "Continent"], answer: "Continent" },
+                { type: "en-ar", question: "Color", options: ["لون", "شكل", "حجم"], answer: "لون" },
+                { type: "ar-en", question: "شكل", options: ["Color", "Shape", "Size"], answer: "Shape" },
+                { type: "en-ar", question: "Red", options: ["أحمر", "أزرق", "أخضر"], answer: "أحمر" },
+                { type: "ar-en", question: "أزرق", options: ["Red", "Blue", "Green"], answer: "Blue" },
+                { type: "en-ar", question: "Green", options: ["أخضر", "أصفر", "أرجواني"], answer: "أخضر" },
+                { type: "ar-en", question: "أصفر", options: ["Green", "Yellow", "Purple"], answer: "Yellow" },
+                { type: "en-ar", question: "Black", options: ["أسود", "أبيض", "رمادي"], answer: "أسود" },
+                { type: "ar-en", question: "أبيض", options: ["Black", "White", "Gray"], answer: "White" },
+                { type: "en-ar", question: "White", options: ["أبيض", "أسود", "فضي"], answer: "أبيض" },
+                { type: "ar-en", question: "رمادي", options: ["White", "Black", "Gray"], answer: "Gray" },
+                { type: "en-ar", question: "Big", options: ["كبير", "صغير", "طويل"], answer: "كبير" },
+                { type: "ar-en", question: "صغير", options: ["Big", "Small", "Tall"], answer: "Small" },
+                { type: "ar-en", question: "صغير", options: ["Big", "Small", "Tall"], answer: "Small" },
+                { type: "en-ar", question: "Small", options: ["صغير", "كبير", "قصير"], answer: "صغير" },
+                { type: "ar-en", question: "طويل", options: ["Small", "Big", "Tall"], answer: "Tall" },
+                { type: "en-ar", question: "Short", options: ["قصير", "طويل", "عريض"], answer: "قصير" },
+                { type: "ar-en", question: "عريض", options: ["Short", "Tall", "Wide"], answer: "Wide" },
+                { type: "en-ar", question: "Long", options: ["طويل", "قصير", "رفيع"], answer: "طويل" },
+                { type: "ar-en", question: "رفيع", options: ["Long", "Short", "Thin"], answer: "Thin" },
+                { type: "en-ar", question: "Hot", options: ["ساخن", "بارد", "دافئ"], answer: "ساخن" },
+                { type: "ar-en", question: "بارد", options: ["Hot", "Cold", "Warm"], answer: "Cold" },
+                { type: "en-ar", question: "Cold", options: ["بارد", "ساخن", "معتدل"], answer: "بارد" },
+                { type: "ar-en", question: "دافئ", options: ["Cold", "Hot", "Warm"], answer: "Warm" },
+                { type: "en-ar", question: "New", options: ["جديد", "قديم", "حديث"], answer: "جديد" },
+                { type: "ar-en", question: "قديم", options: ["New", "Old", "Modern"], answer: "Old" },
+                { type: "en-ar", question: "Old", options: ["قديم", "جديد", "عتيق"], answer: "قديم" },
+                { type: "ar-en", question: "حديث", options: ["Old", "New", "Modern"], answer: "Modern" },
+                { type: "en-ar", question: "Good", options: ["جيد", "سيء", "ممتاز"], answer: "جيد" },
+                { type: "ar-en", question: "سيء", options: ["Good", "Bad", "Excellent"], answer: "Bad" },
+                { type: "en-ar", question: "Bad", options: ["سيء", "جيد", "رديء"], answer: "سيء" },
+                { type: "ar-en", question: "ممتاز", options: ["Bad", "Good", "Excellent"], answer: "Excellent" },
+                { type: "en-ar", question: "Happy", options: ["سعيد", "حزين", "مبتهج"], answer: "سعيد" },
+                { type: "ar-en", question: "حزين", options: ["Happy", "Sad", "Joyful"], answer: "Sad" },
+                { type: "en-ar", question: "Sad", options: ["حزين", "سعيد", "كئيب"], answer: "حزين" },
+                { type: "ar-en", question: "مبتهج", options: ["Sad", "Happy", "Joyful"], answer: "Joyful" },
+                { type: "en-ar", question: "Fast", options: ["سريع", "بطيء", "فوري"], answer: "سريع" },
+                { type: "ar-en", question: "بطيء", options: ["Fast", "Slow", "Immediate"], answer: "Slow" },
+                { type: "en-ar", question: "Slow", options: ["بطيء", "سريع", "هادئ"], answer: "بطيء" },
+                { type: "ar-en", question: "فوري", options: ["Slow", "Fast", "Immediate"], answer: "Immediate" },
+                { type: "en-ar", question: "High", options: ["عالي", "منخفض", "مرتفع"], answer: "عالي" },
+                { type: "ar-en", question: "منخفض", options: ["High", "Low", "Tall"], answer: "Low" },
+                { type: "en-ar", question: "Low", options: ["منخفض", "عالي", "واطئ"], answer: "منخفض" },
+                { type: "ar-en", question: "مرتفع", options: ["Low", "High", "Elevated"], answer: "High" },
+                { type: "en-ar", question: "Right", options: ["يمين", "يسار", "أمام"], answer: "يمين" },
+                { type: "ar-en", question: "يسار", options: ["Right", "Left", "Front"], answer: "Left" },
+                { type: "en-ar", question: "Left", options: ["يسار", "يمين", "خلف"], answer: "يسار" },
+                { type: "ar-en", question: "أمام", options: ["Left", "Right", "Front"], answer: "Front" },
+                { type: "en-ar", question: "Up", options: ["أعلى", "أسفل", "جانب"], answer: "أعلى" },
+                { type: "ar-en", question: "أسفل", options: ["Up", "Down", "Side"], answer: "Down" },
+                { type: "en-ar", question: "Down", options: ["أسفل", "أعلى", "تحت"], answer: "أسفل" },
+                { type: "ar-en", question: "جانب", options: ["Down", "Up", "Side"], answer: "Side" },
+                { type: "en-ar", question: "Inside", options: ["داخل", "خارج", "بين"], answer: "داخل" },
+                { type: "ar-en", question: "خارج", options: ["Inside", "Outside", "Between"], answer: "Outside" },
+                { type: "en-ar", question: "Outside", options: ["خارج", "داخل", "حول"], answer: "خارج" },
+                { type: "ar-en", question: "بين", options: ["Outside", "Inside", "Between"], answer: "Between" },
+                { type: "en-ar", question: "First", options: ["أول", "ثاني", "أخير"], answer: "أول" },
+                { type: "ar-en", question: "ثاني", options: ["First", "Second", "Last"], answer: "Second" },
+                { type: "en-ar", question: "Second", options: ["ثاني", "أول", "ثالث"], answer: "ثاني" },
+                { type: "ar-en", question: "أخير", options: ["Second", "First", "Last"], answer: "Last" },
+                { type: "en-ar", question: "Last", options: ["أخير", "أول", "سابق"], answer: "أخير" },
+                { type: "ar-en", question: "سابق", options: ["Last", "First", "Previous"], answer: "Previous" },
+                { type: "en-ar", question: "Next", options: ["التالي", "السابق", "الحالي"], answer: "التالي" },
+                { type: "ar-en", question: "السابق", options: ["Next", "Previous", "Current"], answer: "Previous" },
+                { type: "en-ar", question: "Previous", options: ["السابق", "التالي", "الحالي"], answer: "السابق" },
+                { type: "ar-en", question: "الحالي", options: ["Previous", "Next", "Current"], answer: "Current" },
+                { type: "en-ar", question: "Early", options: ["مبكر", "متأخر", "في الوقت"], answer: "مبكر" },
+                { type: "ar-en", question: "متأخر", options: ["Early", "Late", "On time"], answer: "Late" },
+                { type: "en-ar", question: "Late", options: ["متأخر", "مبكر", "تأخير"], answer: "متأخر" },
+                { type: "ar-en", question: "في الوقت", options: ["Late", "Early", "On time"], answer: "On time" },
+                { type: "en-ar", question: "Easy", options: ["سهل", "صعب", "متوسط"], answer: "سهل" },
+                { type: "ar-en", question: "صعب", options: ["Easy", "Hard", "Medium"], answer: "Hard" },
+                { type: "en-ar", question: "Hard", options: ["صعب", "سهل", "معقد"], answer: "صعب" },
+                { type: "ar-en", question: "متوسط", options: ["Hard", "Easy", "Medium"], answer: "Medium" },
+                { type: "en-ar", question: "Full", options: ["كامل", "فارغ", "نصف"], answer: "كامل" },
+                { type: "ar-en", question: "فارغ", options: ["Full", "Empty", "Half"], answer: "Empty" },
+                { type: "en-ar", question: "Empty", options: ["فارغ", "كامل", "شاغر"], answer: "فارغ" },
+                { type: "ar-en", question: "نصف", options: ["Empty", "Full", "Half"], answer: "Half" },
+                { type: "en-ar", question: "Open", options: ["مفتوح", "مغلق", "مقفل"], answer: "مفتوح" },
+                { type: "ar-en", question: "مغلق", options: ["Open", "Closed", "Locked"], answer: "Closed" },
+                { type: "en-ar", question: "Closed", options: ["مغلق", "مفتوح", "مفتاح"], answer: "مغلق" },
+                { type: "ar-en", question: "مقفل", options: ["Closed", "Open", "Locked"], answer: "Locked" },
+                { type: "en-ar", question: "Clean", options: ["نظيف", "وسخ", "مغسول"], answer: "نظيف" },
+                { type: "ar-en", question: "وسخ", options: ["Clean", "Dirty", "Washed"], answer: "Dirty" },
+                { type: "en-ar", question: "Dirty", options: ["وسخ", "نظيف", "ملوث"], answer: "وسخ" },
+                { type: "ar-en", question: "مغسول", options: ["Dirty", "Clean", "Washed"], answer: "Washed" },
+                { type: "en-ar", question: "Wet", options: ["مبلل", "جاف", "رطب"], answer: "مبلل" },
+                { type: "ar-en", question: "جاف", options: ["Wet", "Dry", "Moist"], answer: "Dry" },
+                { type: "en-ar", question: "Dry", options: ["جاف", "مبلل", "عطشان"], answer: "جاف" },
+                { type: "ar-en", question: "رطب", options: ["Dry", "Wet", "Moist"], answer: "Moist" },
+                { type: "en-ar", question: "Strong", options: ["قوي", "ضعيف", "متين"], answer: "قوي" },
+                { type: "ar-en", question: "ضعيف", options: ["Strong", "Weak", "Sturdy"], answer: "Weak" },
+                { type: "en-ar", question: "Weak", options: ["ضعيف", "قوي", "هش"], answer: "ضعيف" },
+                { type: "ar-en", question: "متين", options: ["Weak", "Strong", "Sturdy"], answer: "Sturdy" },
+                { type: "en-ar", question: "Soft", options: ["ناعم", "قاسي", "حريري"], answer: "ناعم" },
+                { type: "ar-en", question: "قاسي", options: ["Soft", "Hard", "Silky"], answer: "Hard" },
+                { type: "en-ar", question: "Hard", options: ["قاسي", "ناعم", "صلب"], answer: "قاسي" },
+                { type: "ar-en", question: "حريري", options: ["Hard", "Soft", "Silky"], answer: "Silky" }
+            ],
+            medium: [
+                // 100 سؤال للمستوى المتوسط
+                { type: "en-ar", question: "Computer", options: ["حاسوب", "هاتف", "كاميرا"], answer: "حاسوب" },
+                { type: "ar-en", question: "جامعة", options: ["School", "University", "Institute"], answer: "University" },
+                { type: "en-ar", question: "Beautiful", options: ["جميل", "قبيح", "كبير"], answer: "جميل" },
+                { type: "ar-en", question: "سريع", options: ["Fast", "Slow", "Big"], answer: "Fast" },
+                { type: "en-ar", question: "Mountain", options: ["جبل", "نهر", "صحراء"], answer: "جبل" },
+                { type: "ar-en", question: "صحراء", options: ["Mountain", "Desert", "River"], answer: "Desert" },
+                { type: "en-ar", question: "Education", options: ["تعليم", "علاج", "عمل"], answer: "تعليم" },
+                { type: "ar-en", question: "اقتصاد", options: ["Education", "Economy", "Health"], answer: "Economy" },
+                { type: "en-ar", question: "Government", options: ["حكومة", "شركة", "منظمة"], answer: "حكومة" },
+                { type: "ar-en", question: "ثقافة", options: ["Government", "Culture", "History"], answer: "Culture" },
+                { type: "en-ar", question: "Knowledge", options: ["معرفة", "علوم", "حكمة"], answer: "معرفة" },
+                { type: "ar-en", question: "علوم", options: ["Knowledge", "Science", "Wisdom"], answer: "Science" },
+                { type: "en-ar", question: "Experience", options: ["خبرة", "تجربة", "مهارة"], answer: "خبرة" },
+                { type: "ar-en", question: "مهارة", options: ["Experience", "Experiment", "Skill"], answer: "Skill" },
+                { type: "en-ar", question: "Development", options: ["تطور", "تحسين", "نمو"], answer: "تطور" },
+                { type: "ar-en", question: "نمو", options: ["Development", "Improvement", "Growth"], answer: "Growth" },
+                { type: "en-ar", question: "Challenge", options: ["تحدي", "منافسة", "مشكلة"], answer: "تحدي" },
+                { type: "ar-en", question: "منافسة", options: ["Challenge", "Competition", "Problem"], answer: "Competition" },
+                { type: "en-ar", question: "Opportunity", options: ["فرصة", "احتمال", "مناسبة"], answer: "فرصة" },
+                { type: "ar-en", question: "احتمال", options: ["Opportunity", "Probability", "Occasion"], answer: "Probability" },
+                { type: "en-ar", question: "Management", options: ["إدارة", "تنظيم", "قيادة"], answer: "إدارة" },
+                { type: "ar-en", question: "قيادة", options: ["Management", "Leadership", "Organization"], answer: "Leadership" },
+                { type: "en-ar", question: "Technology", options: ["تكنولوجيا", "علوم", "اختراع"], answer: "تكنولوجيا" },
+                { type: "ar-en", question: "اختراع", options: ["Technology", "Invention", "Science"], answer: "Invention" },
+                { type: "en-ar", question: "Strategy", options: ["استراتيجية", "خطة", "منهج"], answer: "استراتيجية" },
+                { type: "ar-en", question: "خطة", options: ["Strategy", "Plan", "Method"], answer: "Plan" },
+                { type: "en-ar", question: "Quality", options: ["جودة", "نوعية", "كفاءة"], answer: "جودة" },
+                { type: "ar-en", question: "كفاءة", options: ["Quality", "Efficiency", "Effectiveness"], answer: "Efficiency" },
+                { type: "en-ar", question: "Research", options: ["بحث", "دراسة", "استقصاء"], answer: "بحث" },
+                { type: "ar-en", question: "دراسة", options: ["Research", "Study", "Investigation"], answer: "Study" },
+                { type: "en-ar", question: "Environment", options: ["بيئة", "طبيعة", "مناخ"], answer: "بيئة" },
+                { type: "ar-en", question: "مناخ", options: ["Environment", "Climate", "Nature"], answer: "Climate" },
+                { type: "en-ar", question: "Pollution", options: ["تلوث", "نفايات", "تدهور"], answer: "تلوث" },
+                { type: "ar-en", question: "نفايات", options: ["Pollution", "Waste", "Degradation"], answer: "Waste" },
+                { type: "en-ar", question: "Recycling", options: ["إعادة تدوير", "تدوير", "إعادة استخدام"], answer: "إعادة تدوير" },
+                { type: "ar-en", question: "تدوير", options: ["Recycling", "Cycling", "Reusing"], answer: "Recycling" },
+                { type: "en-ar", question: "Renewable", options: ["متجدد", "طبيعي", "نظيف"], answer: "متجدد" },
+                { type: "ar-en", question: "نظيف", options: ["Renewable", "Clean", "Natural"], answer: "Clean" },
+                { type: "en-ar", question: "Global", options: ["عالمي", "محلي", "دولي"], answer: "عالمي" },
+                { type: "ar-en", question: "محلي", options: ["Global", "Local", "International"], answer: "Local" },
+                { type: "en-ar", question: "Local", options: ["محلي", "عالمي", "إقليمي"], answer: "محلي" },
+                { type: "ar-en", question: "دولي", options: ["Local", "Global", "International"], answer: "International" },
+                { type: "en-ar", question: "International", options: ["دولي", "عالمي", "خارجي"], answer: "دولي" },
+                { type: "ar-en", question: "إقليمي", options: ["International", "Global", "Regional"], answer: "Regional" },
+                { type: "en-ar", question: "Regional", options: ["إقليمي", "محلي", "وطني"], answer: "إقليمي" },
+                { type: "ar-en", question: "وطني", options: ["Regional", "Local", "National"], answer: "National" },
+                { type: "en-ar", question: "National", options: ["وطني", "قومي", "محلي"], answer: "وطني" },
+                { type: "ar-en", question: "قومي", options: ["National", "Patriotic", "Ethnic"], answer: "Ethnic" },
+                { type: "en-ar", question: "Ethnic", options: ["قومي", "عرقي", "وطني"], answer: "قومي" },
+                { type: "ar-en", question: "عرقي", options: ["Ethnic", "Racial", "National"], answer: "Racial" },
+                { type: "en-ar", question: "Racial", options: ["عرقي", "قومي", "ديني"], answer: "عرقي" },
+                { type: "ar-en", question: "ديني", options: ["Racial", "Ethnic", "Religious"], answer: "Religious" },
+                { type: "en-ar", question: "Religious", options: ["ديني", "روحاني", "مقدس"], answer: "ديني" },
+                { type: "ar-en", question: "روحاني", options: ["Religious", "Spiritual", "Sacred"], answer: "Spiritual" },
+                { type: "en-ar", question: "Spiritual", options: ["روحاني", "ديني", "فلسفي"], answer: "روحاني" },
+                { type: "ar-en", question: "مقدس", options: ["Spiritual", "Religious", "Sacred"], answer: "Sacred" },
+                { type: "en-ar", question: "Sacred", options: ["مقدس", "ديني", "محترم"], answer: "مقدس" },
+                { type: "ar-en", question: "محترم", options: ["Sacred", "Respected", "Holy"], answer: "Respected" },
+                { type: "en-ar", question: "Respected", options: ["محترم", "مشهور", "مهم"], answer: "محترم" },
+                { type: "ar-en", question: "مشهور", options: ["Respected", "Famous", "Important"], answer: "Famous" },
+                { type: "en-ar", question: "Famous", options: ["مشهور", "معروف", "بارز"], answer: "مشهور" },
+                { type: "ar-en", question: "معروف", options: ["Famous", "Known", "Prominent"], answer: "Known" },
+                { type: "en-ar", question: "Known", options: ["معروف", "مشهور", "واضح"], answer: "معروف" },
+                { type: "ar-en", question: "بارز", options: ["Known", "Famous", "Prominent"], answer: "Prominent" },
+                { type: "en-ar", question: "Prominent", options: ["بارز", "مهم", "مشهور"], answer: "بارز" },
+                { type: "ar-en", question: "مهم", options: ["Prominent", "Important", "Famous"], answer: "Important" },
+                { type: "en-ar", question: "Important", options: ["مهم", "جوهري", "حيوي"], answer: "مهم" },
+                { type: "ar-en", question: "جوهري", options: ["Important", "Essential", "Vital"], answer: "Essential" },
+                { type: "en-ar", question: "Essential", options: ["جوهري", "أساسي", "ضروري"], answer: "جوهري" },
+                { type: "ar-en", question: "أساسي", options: ["Essential", "Basic", "Necessary"], answer: "Basic" },
+                { type: "en-ar", question: "Basic", options: ["أساسي", "بسيط", "بدائي"], answer: "أساسي" },
+                { type: "ar-en", question: "ضروري", options: ["Basic", "Essential", "Necessary"], answer: "Necessary" },
+                { type: "en-ar", question: "Necessary", options: ["ضروري", "حتمي", "لازم"], answer: "ضروري" },
+                { type: "ar-en", question: "حتمي", options: ["Necessary", "Inevitable", "Mandatory"], answer: "Inevitable" },
+                { type: "en-ar", question: "Inevitable", options: ["حتمي", "مؤكد", "محتم"], answer: "حتمي" },
+                { type: "ar-en", question: "مؤكد", options: ["Inevitable", "Certain", "Probable"], answer: "Certain" },
+                { type: "en-ar", question: "Certain", options: ["مؤكد", "واثق", "حقيقي"], answer: "مؤكد" },
+                { type: "ar-en", question: "واثق", options: ["Certain", "Confident", "True"], answer: "Confident" },
+                { type: "en-ar", question: "Confident", options: ["واثق", "متيقن", "مطمئن"], answer: "واثق" },
+                { type: "ar-en", question: "متيقن", options: ["Confident", "Sure", "Assured"], answer: "Sure" },
+                { type: "en-ar", question: "Sure", options: ["متيقن", "واثق", "مؤكد"], answer: "متيقن" },
+                { type: "ar-en", question: "مطمئن", options: ["Sure", "Confident", "Reassured"], answer: "Reassured" },
+                { type: "en-ar", question: "Reassured", options: ["مطمئن", "هادئ", "مرتاح"], answer: "مطمئن" },
+                { type: "ar-en", question: "هادئ", options: ["Reassured", "Calm", "Comfortable"], answer: "Calm" },
+                { type: "en-ar", question: "Calm", options: ["هادئ", "ساكن", "بارد"], answer: "هادئ" },
+                { type: "ar-en", question: "ساكن", options: ["Calm", "Quiet", "Still"], answer: "Quiet" },
+                { type: "en-ar", question: "Quiet", options: ["ساكن", "هادئ", "صامت"], answer: "ساكن" },
+                { type: "ar-en", question: "بارد", options: ["Quiet", "Calm", "Cold"], answer: "Cold" },
+                { type: "en-ar", question: "Cold", options: ["بارد", "مثلج", "قارص"], answer: "بارد" },
+                { type: "ar-en", question: "مثلج", options: ["Cold", "Icy", "Freezing"], answer: "Icy" },
+                { type: "en-ar", question: "Icy", options: ["مثلج", "بارد", "جليدي"], answer: "مثلج" },
+                { type: "ar-en", question: "قارص", options: ["Icy", "Cold", "Biting"], answer: "Biting" },
+                { type: "en-ar", question: "Biting", options: ["قارص", "لاذع", "حاد"], answer: "قارص" },
+                { type: "ar-en", question: "لاذع", options: ["Biting", "Stinging", "Sharp"], answer: "Stinging" },
+                { type: "en-ar", question: "Stinging", options: ["لاذع", "مؤلم", "حارق"], answer: "لاذع" },
+                { type: "ar-en", question: "مؤلم", options: ["Stinging", "Painful", "Burning"], answer: "Painful" },
+                { type: "en-ar", question: "Painful", options: ["مؤلم", "متألم", "وجيع"], answer: "مؤلم" },
+                { type: "ar-en", question: "متألم", options: ["Painful", "Suffering", "Hurt"], answer: "Suffering" },
+                { type: "en-ar", question: "Suffering", options: ["متألم", "معاناة", "ألم"], answer: "متألم" },
+                { type: "ar-en", question: "معاناة", options: ["Suffering", "Distress", "Pain"], answer: "Distress" },
+                { type: "en-ar", question: "Distress", options: ["معاناة", "كرب", "ضيق"], answer: "معاناة" },
+                { type: "ar-en", question: "كرب", options: ["Distress", "Anguish", "Trouble"], answer: "Anguish" },
+                { type: "en-ar", question: "Anguish", options: ["كرب", "حزن عميق", "معاناة شديدة"], answer: "كرب" },
+                { type: "ar-en", question: "ضيق", options: ["Anguish", "Distress", "Tightness"], answer: "Tightness" }
+            ],
+            hard: [
+                // 100 سؤال للمستوى الصعب
+                { type: "en-ar", question: "Entrepreneur", options: ["رائد أعمال", "موظف", "مدير"], answer: "رائد أعمال" },
+                { type: "ar-en", question: "استثمار", options: ["Investment", "Expense", "Profit"], answer: "Investment" },
+                { type: "en-ar", question: "Sustainability", options: ["استدامة", "نمو", "تطور"], answer: "استدامة" },
+                { type: "ar-en", question: "ابتكار", options: ["Innovation", "Creation", "Discovery"], answer: "Innovation" },
+                { type: "en-ar", question: "Cryptocurrency", options: ["عملة رقمية", "عملة ورقية", "سند مالي"], answer: "عملة رقمية" },
+                { type: "ar-en", question: "تضخم", options: ["Deflation", "Inflation", "Recession"], answer: "Inflation" },
+                { type: "en-ar", question: "Artificial Intelligence", options: ["ذكاء اصطناعي", "تعلم آلي", "روبوتات"], answer: "ذكاء اصطناعي" },
+                { type: "ar-en", question: "بيانات", options: ["Information", "Data", "Knowledge"], answer: "Data" },
+                { type: "en-ar", question: "Blockchain", options: ["سلسلة الكتل", "قاعدة بيانات", "شبكة"], answer: "سلسلة الكتل" },
+                { type: "ar-en", question: "خوارزمية", options: ["Algorithm", "Function", "Equation"], answer: "Algorithm" },
+                { type: "en-ar", question: "Globalization", options: ["عولمة", "توسع", "انتشار"], answer: "عولمة" },
+                { type: "ar-en", question: "تنوع", options: ["Globalization", "Diversity", "Expansion"], answer: "Diversity" },
+                { type: "en-ar", question: "Infrastructure", options: ["بنية تحتية", "مرافق", "شبكة"], answer: "بنية تحتية" },
+                { type: "ar-en", question: "مرافق", options: ["Infrastructure", "Facilities", "Network"], answer: "Facilities" },
+                { type: "en-ar", question: "Optimization", options: ["تحسين", "تطوير", "رفع كفاءة"], answer: "تحسين" },
+                { type: "ar-en", question: "كفاءة", options: ["Optimization", "Efficiency", "Effectiveness"], answer: "Efficiency" },
+                { type: "en-ar", question: "Synergy", options: ["تآزر", "تعاون", "تكامل"], answer: "تآزر" },
+                { type: "ar-en", question: "تكامل", options: ["Synergy", "Integration", "Cooperation"], answer: "Integration" },
+                { type: "en-ar", question: "Benchmarking", options: ["معايرة", "تقويم", "مقارنة معايير"], answer: "معايرة" },
+                { type: "ar-en", question: "معايير", options: ["Benchmarking", "Standards", "Criteria"], answer: "Standards" },
+                { type: "en-ar", question: "Entrepreneurship", options: ["ريادة الأعمال", "استثمار", "إدارة"], answer: "ريادة الأعمال" },
+                { type: "ar-en", question: "استثمار", options: ["Entrepreneurship", "Investment", "Management"], answer: "Investment" },
+                { type: "en-ar", question: "Cryptography", options: ["التشفير", "الأمن", "السرية"], answer: "التشفير" },
+                { type: "ar-en", question: "سرية", options: ["Cryptography", "Security", "Confidentiality"], answer: "Confidentiality" },
+                { type: "en-ar", question: "Neuroscience", options: ["علم الأعصاب", "علم النفس", "علم الأحياء"], answer: "علم الأعصاب" },
+                { type: "ar-en", question: "علم النفس", options: ["Neuroscience", "Psychology", "Biology"], answer: "Psychology" },
+                { type: "en-ar", question: "Biotechnology", options: ["التكنولوجيا الحيوية", "الهندسة الوراثية", "الكيمياء الحيوية"], answer: "التكنولوجيا الحيوية" },
+                { type: "ar-en", question: "هندسة وراثية", options: ["Biotechnology", "Genetic Engineering", "Biochemistry"], answer: "Genetic Engineering" },
+                { type: "en-ar", question: "Nanotechnology", options: ["تكنولوجيا النانو", "تكنولوجيا دقيقة", "تكنولوجيا متقدمة"], answer: "تكنولوجيا النانو" },
+                { type: "ar-en", question: "تكنولوجيا دقيقة", options: ["Nanotechnology", "Microtechnology", "Advanced Technology"], answer: "Microtechnology" },
+                { type: "en-ar", question: "Quantum", options: ["كمي", "دقيق", "جوهري"], answer: "كمي" },
+                { type: "ar-en", question: "جوهري", options: ["Quantum", "Intrinsic", "Fundamental"], answer: "Intrinsic" },
+                { type: "en-ar", question: "Epistemology", options: ["نظرية المعرفة", "علم الوجود", "علم المنطق"], answer: "نظرية المعرفة" },
+                { type: "ar-en", question: "علم الوجود", options: ["Epistemology", "Ontology", "Logic"], answer: "Ontology" },
+                { type: "en-ar", question: "Hermeneutics", options: ["علم التأويل", "علم الدلالة", "علم النحو"], answer: "علم التأويل" },
+                { type: "ar-en", question: "علم الدلالة", options: ["Hermeneutics", "Semantics", "Syntax"], answer: "Semantics" },
+                { type: "en-ar", question: "Telecommunication", options: ["اتصالات", "اتصال عن بعد", "بث"], answer: "اتصالات" },
+                { type: "ar-en", question: "بث", options: ["Telecommunication", "Broadcasting", "Transmission"], answer: "Broadcasting" },
+                { type: "en-ar", question: "Philanthropy", options: ["عمل خيري", "إحسان", "تبرع"], answer: "عمل خيري" },
+                { type: "ar-en", question: "إحسان", options: ["Philanthropy", "Charity", "Donation"], answer: "Charity" },
+                { type: "en-ar", question: "Metaphysics", options: ["ما وراء الطبيعة", "فلسفة", "علم الكون"], answer: "ما وراء الطبيعة" },
+                { type: "ar-en", question: "علم الكون", options: ["Metaphysics", "Cosmology", "Philosophy"], answer: "Cosmology" },
+                { type: "en-ar", question: "Ephemeral", options: ["عابر", "مؤقت", "سريع الزوال"], answer: "عابر" },
+                { type: "ar-en", question: "سريع الزوال", options: ["Ephemeral", "Temporary", "Transient"], answer: "Ephemeral" },
+                { type: "en-ar", question: "Quintessential", options: ["أساسي", "نمطي", "مثالي"], answer: "نمطي" },
+                { type: "ar-en", question: "مثالي", options: ["Quintessential", "Ideal", "Essential"], answer: "Ideal" },
+                { type: "en-ar", question: "Serendipity", options: ["صدفة سعيدة", "حظ", "مفاجأة"], answer: "صدفة سعيدة" },
+                { type: "ar-en", question: "حظ", options: ["Serendipity", "Luck", "Coincidence"], answer: "Luck" },
+                { type: "en-ar", question: "Ubiquitous", options: ["موجود في كل مكان", "شائع", "منتشر"], answer: "موجود في كل مكان" },
+                { type: "ar-en", question: "منتشر", options: ["Ubiquitous", "Widespread", "Common"], answer: "Widespread" },
+                { type: "en-ar", question: "Sycophant", options: ["متملق", "نمام", "كاذب"], answer: "متملق" },
+                { type: "ar-en", question: "نمام", options: ["Sycophant", "Tattletale", "Flatterer"], answer: "Tattletale" },
+                { type: "en-ar", question: "Juxtaposition", options: ["تجاور", "مقارنة", "تعارض"], answer: "تجاور" },
+                { type: "ar-en", question: "تعارض", options: ["Juxtaposition", "Contradiction", "Contrast"], answer: "Contradiction" },
+                { type: "en-ar", question: "Paradigm", options: ["نموذج", "مثال", "قالب"], answer: "نموذج" },
+                { type: "ar-en", question: "قالب", options: ["Paradigm", "Template", "Model"], answer: "Template" },
+                { type: "en-ar", question: "Epiphany", options: ["استبصار", "اكتشاف", "وحي"], answer: "استبصار" },
+                { type: "ar-en", question: "وحي", options: ["Epiphany", "Revelation", "Inspiration"], answer: "Revelation" },
+                { type: "en-ar", question: "Cacophony", options: ["تنافر", "ضوضاء", "فوضى"], answer: "تنافر" },
+                { type: "ar-en", question: "ضوضاء", options: ["Cacophony", "Noise", "Chaos"], answer: "Noise" },
+                { type: "en-ar", question: "Eloquence", options: ["بلاغة", "فصاحة", "طلاقة"], answer: "بلاغة" },
+                { type: "ar-en", question: "فصاحة", options: ["Eloquence", "Fluency", "Articulacy"], answer: "Fluency" },
+                { type: "en-ar", question: "Pragmatic", options: ["عملي", "واقعي", "منطقي"], answer: "عملي" },
+                { type: "ar-en", question: "واقعي", options: ["Pragmatic", "Realistic", "Logical"], answer: "Realistic" },
+                { type: "en-ar", question: "Realistic", options: ["واقعي", "عملي", "مادي"], answer: "واقعي" },
+                { type: "ar-en", question: "منطقي", options: ["Realistic", "Pragmatic", "Logical"], answer: "Logical" },
+                { type: "en-ar", question: "Logical", options: ["منطقي", "عقلاني", "حكيم"], answer: "منطقي" },
+                { type: "ar-en", question: "عقلاني", options: ["Logical", "Rational", "Wise"], answer: "Rational" },
+                { type: "en-ar", question: "Rational", options: ["عقلاني", "منطقي", "حكيم"], answer: "عقلاني" },
+                { type: "ar-en", question: "حكيم", options: ["Rational", "Logical", "Wise"], answer: "Wise" },
+                { type: "en-ar", question: "Wise", options: ["حكيم", "عاقل", "مدرك"], answer: "حكيم" },
+                { type: "ar-en", question: "عاقل", options: ["Wise", "Sensible", "Perceptive"], answer: "Sensible" },
+                { type: "en-ar", question: "Sensible", options: ["عاقل", "معقول", "حذر"], answer: "عاقل" },
+                { type: "ar-en", question: "معقول", options: ["Sensible", "Reasonable", "Cautious"], answer: "Reasonable" },
+                { type: "en-ar", question: "Reasonable", options: ["معقول", "منطقي", "مقبول"], answer: "معقول" },
+                { type: "ar-en", question: "حذر", options: ["Reasonable", "Sensible", "Cautious"], answer: "Cautious" },
+                { type: "en-ar", question: "Cautious", options: ["حذر", "متحفظ", "دقيق"], answer: "حذر" },
+                { type: "ar-en", question: "متحفظ", options: ["Cautious", "Reserved", "Careful"], answer: "Reserved" },
+                { type: "en-ar", question: "Reserved", options: ["متحفظ", "هادئ", "خجول"], answer: "متحفظ" },
+                { type: "ar-en", question: "هادئ", options: ["Reserved", "Quiet", "Shy"], answer: "Quiet" },
+                { type: "en-ar", question: "Quiet", options: ["هادئ", "ساكن", "خافت"], answer: "هادئ" },
+                { type: "ar-en", question: "خجول", options: ["Quiet", "Reserved", "Shy"], answer: "Shy" },
+                { type: "en-ar", question: "Shy", options: ["خجول", "خائف", "متواضع"], answer: "خجول" },
+                { type: "ar-en", question: "خائف", options: ["Shy", "Afraid", "Humble"], answer: "Afraid" },
+                { type: "en-ar", question: "Afraid", options: ["خائف", "قلق", "مرتعب"], answer: "خائف" },
+                { type: "ar-en", question: "قلق", options: ["Afraid", "Anxious", "Terrified"], answer: "Anxious" },
+                { type: "en-ar", question: "Anxious", options: ["قلق", "متوتر", "خائف"], answer: "قلق" },
+                { type: "ar-en", question: "مرتعب", options: ["Anxious", "Afraid", "Terrified"], answer: "Terrified" },
+                { type: "en-ar", question: "Terrified", options: ["مرتعب", "مذعور", "خائف جدا"], answer: "مرتعب" },
+                { type: "ar-en", question: "مذعور", options: ["Terrified", "Frightened", "Very afraid"], answer: "Frightened" },
+                { type: "en-ar", question: "Frightened", options: ["مذعور", "خائف", "مرتبك"], answer: "مذعور" },
+                { type: "ar-en", question: "خائف جدا", options: ["Frightened", "Terrified", "Extremely afraid"], answer: "Extremely afraid" },
+                { type: "en-ar", question: "Extremely afraid", options: ["خائف جدا", "مذعور", "مرتعب"], answer: "خائف جدا" }
+            ]
+        };
+
+        // عناصر DOM
+        const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+        const questionText = document.querySelector('.question-text');
+        const questionType = document.querySelector('.question-type');
+        const options = document.querySelectorAll('.option');
+        const nextBtn = document.querySelector('.next-btn');
+        const scoreElement = document.getElementById('score');
+        const progressFill = document.getElementById('progress');
+        const currentQuestion = document.getElementById('current');
+        const resultScreen = document.querySelector('.result-screen');
+        const finalScore = document.getElementById('final-score');
+        const restartBtn = document.querySelector('.restart-btn');
+        const notification = document.getElementById('notification');
+        const levelElement = document.getElementById('level');
+        const resultMessage = document.getElementById('result-message');
+        const currentLevelElement = document.getElementById('current-level');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        
+        // متغيرات اللعبة
+        let currentLevel = 'easy';
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+                // تهيئة اللعبة
+        function initGame() {
+            // حساب إجمالي الأسئلة
+            const totalQuestions = Object.values(questions).reduce((acc, level) => acc + level.length, 0);
+            totalQuestionsElement.textContent = totalQuestions;
+            
+            // اختيار المستوى
+            difficultyBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    difficultyBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentLevel = btn.dataset.level;
+                    levelElement.textContent = btn.textContent.split(' ')[0];
+                    currentLevelElement.textContent = btn.textContent.split(' ')[0];
+                    resetGame();
+                    loadQuestions();
+                    displayQuestion();
+                });
+            });
+            
+            // تحميل الأسئلة الأولى
+            loadQuestions();
+            displayQuestion();
+            
+            // إضافة أحداث للأزرار
+            options.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            nextBtn.addEventListener('click', nextQuestion);
+            restartBtn.addEventListener('click', resetGame);
+        }
+        
+        // تحميل الأسئلة حسب المستوى
+        function loadQuestions() {
+            currentQuestions = [...questions[currentLevel]];
+            shuffleArray(currentQuestions);
+            currentQuestions = currentQuestions.slice(0, 10); // اختيار 10 أسئلة فقط لكل لعبة
+        }
+        
+        // عرض السؤال الحالي
+        function displayQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            
+            // عرض نص السؤال
+            questionText.textContent = question.type === "en-ar" 
+                ? `ما ترجمة كلمة "${question.question}"؟` 
+                : `What is the translation of "${question.question}"?`;
+            
+            // عرض نوع السؤال
+            questionType.textContent = question.type === "en-ar" 
+                ? "(الإنجليزية إلى العربية)" 
+                : "(العربية إلى الإنجليزية)";
+            
+            // عرض الخيارات
+            options.forEach((option, index) => {
+                option.textContent = question.options[index];
+                option.dataset.value = question.options[index];
+                option.classList.remove('correct', 'wrong');
+            });
+            
+            // تحديث شريط التقدم
+            currentQuestion.textContent = currentQuestionIndex + 1;
+            progressFill.style.width = `${(currentQuestionIndex / 10) * 100}%`;
+            
+            // إعادة تعليمات الإجابة
+            answered = false;
+            nextBtn.disabled = true;
+        }
+        
+        // اختيار إجابة
+        function selectOption(e) {
+            if (answered) return;
+            
+            const selectedOption = e.target;
+            const question = currentQuestions[currentQuestionIndex];
+            const isCorrect = selectedOption.dataset.value === question.answer;
+            
+            // إظهار الإجابة الصحيحة
+            options.forEach(option => {
+                if (option.dataset.value === question.answer) {
+                    option.classList.add('correct');
+                }
+                
+                if (option === selectedOption && !isCorrect) {
+                    option.classList.add('wrong');
+                }
+            });
+            
+            // تحديث النقاط
+            if (isCorrect) {
+                score++;
+                scoreElement.textContent = score;
+                
+                // عرض إشعار الإجابة الصحيحة
+                notification.textContent = "إجابة صحيحة! +1 نقطة";
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            }
+            
+            answered = true;
+            nextBtn.disabled = false;
+        }
+        
+        // الانتقال إلى السؤال التالي
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < 10) {
+                displayQuestion();
+            } else {
+                // نهاية اللعبة
+                showResults();
+            }
+        }
+        
+        // عرض النتائج
+        function showResults() {
+            document.querySelector('.game-area').style.display = 'none';
+            resultScreen.style.display = 'block';
+            finalScore.textContent = `${score}/10`;
+            
+            // رسالة تحفيزية حسب النتيجة
+            if (score >= 8) {
+                resultMessage.textContent = "ممتاز! أنت تتقن اللغة الإنجليزية بشكل رائع.";
+            } else if (score >= 5) {
+                resultMessage.textContent = "جيد جداً! استمر في الممارسة لتحسين مهاراتك.";
+            } else {
+                resultMessage.textContent = "حاول مرة أخرى! الممارسة المستمرة هي مفتاح النجاح.";
+            }
+        }
+        
+        // إعادة تعيين اللعبة
+        function resetGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreElement.textContent = "0";
+            resultScreen.style.display = 'none';
+            document.querySelector('.game-area').style.display = 'block';
+            loadQuestions();
+            displayQuestion();
+        }
+        
+        // خلط العناصر في المصفوفة (لخلط الخيارات)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        // بدء اللعبة
+        window.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>
